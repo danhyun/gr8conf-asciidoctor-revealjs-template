@@ -1,0 +1,32 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+os:
+  - linux
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+  - $HOME/.gradle
+
+before_install:
+
+
+script:
+  - ./gradlew clean asciidoctor -i
+  - cd ..
+  - git clone --branch=gh-pages git://github.com/danhyun/gr8conf-asciidoctor-revealjs-template.git gh-pages
+  - cd gh-pages
+  - git config user.email "danhyun@users.noreply.github.com"
+  - git config user.name "Dan hyun"
+  - git rm -r -f -q . --ignore-unmatch
+#  - rm -rf .
+  - mv ../git-2015-session/build/asciidoc/revealjs/* .
+  - git add .
+  - git commit -m "Publishing github pages"
+  - git push "https://${GH_TOKEN}@github.com/danhyun/gr8conf-asciidoctor-revealjs-template.git" gh-pages > /dev/null 2>&1

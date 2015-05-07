@@ -1,0 +1,17 @@
+= GR8Conf 2015 Asciidoctor Revealjs Template
+Dan Hyun <https://github.com/danhyun[@danhyun]>
+2015-05-07
+
+== Topics
+
+* Introduction
+* Git Fundamentals
+* Git Commands
+* Everyday Git
+* Best Practices
+* Resources
+
+
+include::01-hello.adoc[]
+
+== Questions?
